@@ -19,20 +19,25 @@ public:
 	{
 		if (message.startsWith("Pog"))
 		{
-			//sends a message to the same channel that Pog was received in and then turns it into a link to their avatar using their ID and avatar hash and then add a .png link
-			
+
 			SleepyDiscord::Server guild = getServer(message.serverID);
-			auto members = listMembers(message.serverID,12).list();
+			//grabs a list of members from the server up to 120 users
+			auto members = listMembers(message.serverID, 120).list();
 			
 			std::vector<Contestant> test_contestants;
 
 			for (SleepyDiscord::ServerMember& member : members) {
+				//grab the pfp link using member data
 				std::string pfp = "https:\//cdn.discordapp.com/avatars/" + member.user.ID + "/" + member.user.avatar + ".png";
+				//stick a contestant into the the vector
 				test_contestants.emplace_back(Contestant{ pfp, member.user.username,0,true });
 			}
+			//make the bot type so it seems more realistic
 			sendTyping(message.channelID);
+
+			//simulate all the events
 			auto events = simulate(test_contestants);
-			std::string eventsList;
+			std::string eventsList; //build a string full of all the events *to avoid ratelimit*
 			for (Event& event : events)
 			{
 				for (std::string& chunk : event.text)
@@ -41,14 +46,14 @@ public:
 				}
 				eventsList += "\n";
 			}
-			sendMessage(message.channelID, eventsList);
+			sendMessage(message.channelID, eventsList); //send the message off
 		}
 	}
 };
 
 int main()
 {
-	MyClientClass client("token", SleepyDiscord::USER_CONTROLED_THREADS);
+	MyClientClass client("MzY2MjM1MDU1MjUwNjA0MDMz.XroQWA.ISJA-HLLbLHGFMO5kTJRVsCtbx8", SleepyDiscord::USER_CONTROLED_THREADS);
 	example();
 	std::cout << "wow it works\n";
 	client.run();

@@ -4,8 +4,11 @@
 /* Library Headers */
 #include <sleepy_discord/sleepy_discord.h>
 
-/* DigiRoyale Headers */
-#include <digiroyale/example.hpp>
+/* DigiRoyale Sim Headers */
+#include <digiroyale/simulation/example.hpp>
+
+/* DigiRoyale Bot Headers */
+#include <digiroyale/discordbot/example.hpp>
 
 class MyClientClass : public SleepyDiscord::DiscordClient
 {
@@ -21,6 +24,7 @@ public:
 int main()
 {
 	MyClientClass client("token", SleepyDiscord::USER_CONTROLED_THREADS);
+	example();
 	std::cout << "wow it works\n";
 	client.run();
 }

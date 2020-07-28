@@ -53,7 +53,11 @@ public:
 
 int main()
 {
-	MyClientClass client("MzY2MjM1MDU1MjUwNjA0MDMz.XroQWA.ISJA-HLLbLHGFMO5kTJRVsCtbx8", SleepyDiscord::USER_CONTROLED_THREADS);
+	std::ifstream fs;
+	fs.open("token.txt");
+	std::string token = "";
+	std::getline(fs, token);
+	MyClientClass client(token , SleepyDiscord::USER_CONTROLED_THREADS);
 	example();
 	std::cout << "wow it works\n";
 	client.run();

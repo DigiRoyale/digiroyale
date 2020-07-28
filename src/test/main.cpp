@@ -4,19 +4,25 @@
 
 std::vector<std::string> names =
 {
-  "Robert",
-  "Joseph",
-  "Jonathan",
-  "Gyro",
-  "Funny",
-  "Dio",
+  "Robert Speedwagon",
+  "Joseph Joestar",
+  "Jonathan Joestar",
+  "Gyro Zeppeli",
+  "Funny Valentine",
+  "Dio Brando",
   "Polpo",
   "Kars",
-  "Rudol",
+  "Rudol von Stroheim",
   "Melone",
-  "Josuke",
+  "Josuke Higashikata",
   "Diavolo",
-  "Abdul"
+  "Muhammad Abdul",
+  "Leon Abbachio",
+  "Caesar Zeppeli",
+  "Yasuho Hirose",
+  "Foo Fighters",
+  "Yoshikage Kira",
+  "Hot Pants"
 };
 
 int main()
@@ -32,8 +38,8 @@ int main()
     });
   }
 
-  auto events = simulate(test_contestants);
-  for (Event& event : events)
+  auto result = simulate(test_contestants);
+  for (Event& event : result.events)
   {
     for (std::string& chunk : event.text)
     {
@@ -41,5 +47,5 @@ int main()
     }
     std::cout << std::endl;
   }
-  std::cout << "done\n";
+  std::cout << "The winner is " << result.winner.name << " with " << result.winner.killCount << " kills.\n";
 }

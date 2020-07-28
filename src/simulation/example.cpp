@@ -24,9 +24,9 @@ static int numAlive(std::vector<Contestant> contestants)
   return sum;
 }
 
-std::vector<Event> simulate(std::vector<Contestant> contestants)
+SimResult simulate(std::vector<Contestant> contestants)
 {
-  std::vector<Event> return_events;
+  SimResult result;
   while (numAlive(contestants) > 1)
   {
     Event e = events[rand() % events.size()];
@@ -66,7 +66,18 @@ std::vector<Event> simulate(std::vector<Contestant> contestants)
         s = e.contestants[s[0] - '0'].name;
       }
     }
-    return_events.push_back(e);
+    result.events.push_back(e);
   }
-  return return_events;
+
+  for (Contestant& c : contestants)
+  {
+    if (c.isAlive)
+    {
+      result.winner = c;
+    }
+  }
+
+  result.contestants = contestants;
+
+  return result;
 }

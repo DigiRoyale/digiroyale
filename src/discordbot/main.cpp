@@ -36,9 +36,9 @@ public:
 			sendTyping(message.channelID);
 
 			//simulate all the events
-			auto events = simulate(test_contestants);
+			auto result = simulate(test_contestants);
 			std::string eventsList; //build a string full of all the events *to avoid ratelimit*
-			for (Event& event : events)
+			for (Event& event : result.events)
 			{
 				for (std::string& chunk : event.text)
 				{

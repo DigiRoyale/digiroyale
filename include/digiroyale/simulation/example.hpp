@@ -30,4 +30,11 @@ struct Event
   std::vector <std::string> text;
 };
 
-std::vector<Event> simulate(std::vector<Contestant> contestants);
+struct SimResult
+{
+  std::vector<Event> events;
+  std::vector<Contestant> contestants;
+  Contestant winner;
+};
+
+SimResult simulate(std::vector<Contestant> contestants);

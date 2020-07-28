@@ -11,3 +11,6 @@ add_library(digiroyale-sim ${DIGIROYALE_SIM_HEADERS} ${DIGIROYALE_SIM_SRC})
 
 add_executable(digiroyale-bot ${DIGIROYALE_BOT_HEADERS} ${DIGIROYALE_BOT_SRC})
 target_link_libraries(digiroyale-bot digiroyale-sim sleepy-discord)
+
+add_executable(digiroyale-test ${DIGIROYALE_TEST_SRC})
+target_link_libraries(digiroyale-test digiroyale-sim)

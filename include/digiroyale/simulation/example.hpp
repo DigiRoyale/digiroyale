@@ -11,8 +11,8 @@ struct Contestant
 {
   std::string image_url;
   std::string name;
-  int killCount;
-  bool isAlive;
+  int killCount = 0;
+  bool isAlive = true;
 };
 
 enum Action
@@ -24,6 +24,7 @@ enum Action
 
 struct Event
 {
+  int contestantCount;
   std::vector<Contestant> contestants;
   std::vector<Action> whatHappened;
   std::vector <std::string> text;

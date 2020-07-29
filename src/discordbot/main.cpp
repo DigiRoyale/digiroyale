@@ -19,8 +19,6 @@ public:
 	{
 		if (message.startsWith("Pog"))
 		{
-
-			SleepyDiscord::Server guild = getServer(message.serverID);
 			//grabs a list of members from the server up to 120 users
 			auto members = listMembers(message.serverID, 120).list();
 			
@@ -53,12 +51,33 @@ public:
 
 int main()
 {
-	std::ifstream fs;
-	fs.open("token.txt");
-	std::string token = "";
-	std::getline(fs, token);
+	std::string token;
+
+	{
+		std::ifstream token_infile{ "data/discordbot/token.json" };
+	  std::stringstream buffer;
+		buffer << token_infile.rdbuf();
+		token = buffer.str();
+	}
+
+	rapidjson::Document doc;
+	if (doc.Parse(token.c_str()).HasParseError())
+	{
+		std::cerr << "Failed to parse token.json in the data/discordbot folder.\n";
+		return 1;
+	}
+
+	token = doc["token"].GetString();
+	if (token == "NO_TOKEN")
+	{
+		std::cerr << "No bot token found. Fill in the token.json file in the data/discordbot folder.\n";
+		return 1;
+	}
+
 	MyClientClass client(token , SleepyDiscord::USER_CONTROLED_THREADS);
 	example();
-	std::cout << "wow it works\n";
+	std::cout << "DigiRoyale v0.0.0\n";
 	client.run();
+
+	return 0;
 }

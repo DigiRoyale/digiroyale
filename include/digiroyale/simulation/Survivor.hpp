@@ -1,5 +1,4 @@
-#include "digiroyale/simulation/Inventory.hpp"
-#define NOGRID //non-grid based implementation
+#include <digiroyale/simulation/Inventory.hpp>
 
 class Survivor
 {
@@ -29,15 +28,9 @@ private:
 	int energy; //from 0-10, energy/stamina
 	int killCount = 0;
 	bool isAlive = true;
-#ifdef NOGRID
 	float noticeability = 1.f; //no max, ability to be noticed (noise, stank, etc.)  
 	//TODO: maybe make Status Effects and put this in there
 	float digistank = 0.f; //distance squared of stank (0 if clean)
-#endif
-#ifdef GRID
-	int noticeability; //no max, ability to be noticed (noise, stank, etc.)  
-	int digistank; //distance squared of stank (0 if clean)
-#endif
 };
 //things to note: 
 // - survivors with higher dexterity will have lower strength and vice versa

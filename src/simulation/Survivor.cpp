@@ -1,4 +1,4 @@
-#include "digiroyale/simulation/Survivor.hpp"
+#include <digiroyale/simulation/Survivor.hpp>
 
 Survivor::Survivor(std::string name_, std::string image_url, int trust_, int charisma_, int care_, int sneak,
 	int shower, int strength_)

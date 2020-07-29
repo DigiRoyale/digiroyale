@@ -1,5 +1,5 @@
 #include <vector>
-#include "digiroyale/simulation/Inventory.hpp"
+#include <digiroyale/simulation/Inventory.hpp>
 
 struct MapElement
 {

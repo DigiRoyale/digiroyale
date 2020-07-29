@@ -4,9 +4,10 @@
 class Survivor
 {
 public:
-	Survivor(int trust_, int charisma_, int care_, int sneak, int shower, int strength_);
+	Survivor(std::string name_, std::string image_url, int trust_, int charisma_,
+		int care_, int sneak, int shower, int strength_);
 	std::string name; //please dont name yourself "@everyone"
-	std::string image_url;
+	std::string imageURL;
 	Inventory inventory;
 private:
 	//personality stats
@@ -31,7 +32,7 @@ private:
 #ifdef NOGRID
 	float noticeability = 1.f; //no max, ability to be noticed (noise, stank, etc.)  
 	//TODO: maybe make Status Effects and put this in there
-	float digistank; //distance squared of stank (0 if clean)
+	float digistank = 0.f; //distance squared of stank (0 if clean)
 #endif
 #ifdef GRID
 	int noticeability; //no max, ability to be noticed (noise, stank, etc.)  

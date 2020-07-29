@@ -32,6 +32,7 @@ struct Consumable : public Item
 		CTemptys, //makes belly feel empty to starve
 		CTnarcs, //de-energizes to make someone need to rest
 	};
+	ConsumableType type;
 	int healAmt; //heal amount
 	int energyAmt; //energy amount or narc amount if narc type
 	int waterAmt; //hydrate/dehydrate amount

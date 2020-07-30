@@ -1,4 +1,5 @@
 #include <digiroyale/simulation/example.hpp>
+#include <digiroyale/simulation/Random.hpp>
 
 void example() {}
 
@@ -27,13 +28,14 @@ static int numAlive(std::vector<Contestant> contestants)
 SimResult simulate(std::vector<Contestant> contestants)
 {
   SimResult result;
+
   while (numAlive(contestants) > 1)
   {
-    Event e = events[rand() % events.size()];
+    Event e = events[Random::Range(0,events.size()-1)/*rand() % events.size()*/];
     std::vector<Contestant> involved;
     for (int i = 0; i < e.contestantCount; ++i)
     {
-      int idx = rand() % contestants.size();
+      int idx = Random::Range(0,contestants.size()-1)/*rand() % contestants.size()*/;
       if (contestants[idx].isAlive)
       {
         switch (e.whatHappened[i])

@@ -31,11 +31,11 @@ SimResult simulate(std::vector<Contestant> contestants)
 
   while (numAlive(contestants) > 1)
   {
-    Event e = events[Random::Range(0,events.size()-1)/*rand() % events.size()*/];
+    Event e = events[Random::Range(0, events.size() - 1)];
     std::vector<Contestant> involved;
     for (int i = 0; i < e.contestantCount; ++i)
     {
-      int idx = Random::Range(0,contestants.size()-1)/*rand() % contestants.size()*/;
+      int idx = Random::Range(0, contestants.size() - 1);
       if (contestants[idx].isAlive)
       {
         switch (e.whatHappened[i])

@@ -7,6 +7,8 @@ add_subdirectory(lib)
 add_subdirectory(include)
 add_subdirectory(src)
 
+add_subdirectory(data)
+
 add_library(digiroyale-sim ${DIGIROYALE_SIM_HEADERS} ${DIGIROYALE_SIM_SRC})
 
 add_executable(digiroyale-bot ${DIGIROYALE_BOT_HEADERS} ${DIGIROYALE_BOT_SRC})

@@ -5,3 +5,5 @@ build/
 out/
 
 CMakeSettings.json
+
+data/discordbot/token.json

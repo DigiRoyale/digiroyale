@@ -4,6 +4,9 @@
 #include <ctime> //time
 #include <type_traits> //std::is_same
 
+namespace DigiRoyale
+{
+
 namespace Random
 {
 // random number generator, uses 64 bit Mersenne Twister engine
@@ -19,7 +22,7 @@ std::common_type_t<T, U> Range(T lower_bound, U upper_bound)
 		// calling min and max like this ensures that the bounds can be in the wrong order and it will still work
 		std::min(float_t(lower_bound), float_t(upper_bound)),
 		// we want this to be a closed interval, but std::real_distribution does a left-closed right-open interval.
-	  // so nextafter makes the upper bound the next representable float, so we get a closed interval.
+		// so nextafter makes the upper bound the next representable float, so we get a closed interval.
 		std::nextafter(
 			std::max(float_t(lower_bound), float_t(upper_bound)),
 			std::numeric_limits<float_t>::max())
@@ -43,4 +46,6 @@ std::common_type_t<T, U> Range(T lower_bound, U upper_bound)
 	return dist(rng);
 }
 
-};
+}
+
+}

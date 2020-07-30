@@ -2,11 +2,14 @@
 
 #include <digiroyale/simulation/Inventory.hpp>
 
+namespace DigiRoyale
+{
+
 class Survivor
 {
 public:
 	Survivor(std::string name_, std::string image_url, int trust_, int charisma_,
-		int care_, int sneak, int shower, int strength_);
+					 int care_, int sneak, int shower, int strength_);
 	std::string name; //please dont name yourself "@everyone"
 	std::string imageURL;
 	Inventory inventory;
@@ -44,3 +47,5 @@ private:
 // - Care and crafty are inverses of each other
 // - Higher charisma means you'll find it easier to convince others to be your ally, but
 //	 it will lower your max energy as it takes more energy to keep their trust in you
+
+}

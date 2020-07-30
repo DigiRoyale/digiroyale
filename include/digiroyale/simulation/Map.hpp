@@ -3,6 +3,9 @@
 #include <vector>
 #include <digiroyale/simulation/Inventory.hpp>
 
+namespace DigiRoyale
+{
+
 struct MapElement
 {
 	float size; //radius
@@ -54,3 +57,5 @@ struct Map
 	std::vector<Inventory> lootStashes; //[0] is cornicopia
 	std::vector<MapElement*> elements;
 };
+
+}

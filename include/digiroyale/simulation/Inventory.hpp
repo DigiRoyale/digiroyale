@@ -3,6 +3,9 @@
 #include <vector>
 #include <string>
 
+namespace DigiRoyale
+{
+
 struct Item
 {
 	enum ItemType
@@ -45,3 +48,5 @@ struct Inventory
 {
 	std::vector<Item*> items;
 };
+
+}

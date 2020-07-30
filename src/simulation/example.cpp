@@ -1,6 +1,8 @@
 #include <digiroyale/simulation/example.hpp>
 #include <digiroyale/simulation/Random.hpp>
 
+using namespace DigiRoyale;
+
 void example() {}
 
 std::vector<Event> events =

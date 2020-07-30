@@ -5,6 +5,9 @@
 #include <string>
 #include <vector>
 
+namespace DigiRoyale
+{
+
 void example();
 
 struct Contestant
@@ -27,7 +30,7 @@ struct Event
   int contestantCount;
   std::vector<Contestant> contestants;
   std::vector<Action> whatHappened;
-  std::vector <std::string> text;
+  std::vector<std::string> text;
 };
 
 struct SimResult
@@ -38,3 +41,5 @@ struct SimResult
 };
 
 SimResult simulate(std::vector<Contestant> contestants);
+
+}

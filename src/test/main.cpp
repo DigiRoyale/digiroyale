@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+using namespace DigiRoyale;
+
 std::vector<std::string> names =
 {
   "Robert Speedwagon",

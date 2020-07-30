@@ -1,3 +1,5 @@
+#pragma once
+
 #include <digiroyale/simulation/Inventory.hpp>
 
 class Survivor
